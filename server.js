@@ -12,22 +12,35 @@ app.use(express.json());
 // Hlavní endpoint pro vyhledávání
 app.get('/api/search', async (req, res) => {
     const query = req.query.q;
+    const apiKey = process.env.SERP_API_KEY; // Načte klíč z .env
     
     if (!query) {
         return res.status(400).json({ error: 'Chybí vyhledávací dotaz' });
     }
 
     try {
-        // Tady pak napojíme SerpApi nebo jiný scraper
-        // Pro teď jen simulujeme odpověď
-        const mockData = [
-            { title: "Výsledek 1", link: "https://example.com", snippet: "Popisek webu..." },
-            { title: "Výsledek 2", link: "https://test.cz", snippet: "Další popisek..." }
-        ];
+        // Volání SerpApi
+        const response = await axios.get('https://serpapi.com/search.json', {
+            params: {
+                q: query,
+                api_key: apiKey,
+                engine: "google",
+                hl: "cs", // Jazyk čeština
+                gl: "cz"  // Lokalita Česko
+            }
+        });
+
+        // Vytáhneme pouze "organic_results" (přirozené vyhledávání - Bod 3 zadání)
+        const organicResults = response.data.organic_results.map(item => ({
+            title: item.title,
+            link: item.link,
+            snippet: item.snippet
+        }));
         
-        res.json(mockData);
+        res.json(organicResults);
     } catch (error) {
-        res.status(500).json({ error: 'Něco se pokazilo při komunikaci s Googlem' });
+        console.error(error);
+        res.status(500).json({ error: 'Chyba při komunikaci se SerpApi' });
     }
 });
 
