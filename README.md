@@ -21,5 +21,21 @@ Pro spuštění projektu na vašem počítači postupujte podle následujících
 
 1. **Klonování repozitáře:**
    ```bash
-   git clone 
+   git clone https://github.com/kofronadam/projekt-in
    cd NAZEV_REPOZITARE
+
+Instalace závislostí:
+npm install
+
+
+Nastavení prostředí (API klíč):
+V kořenovém adresáři vytvořte soubor .env a vložte do něj svůj klíč pro SerpApi:
+SERP_API_KEY = vás_api_klíč_z_serpapi.com
+
+Spuštění aplikace:
+npm start
+Aplikace bude dostupná na adrese http://localhost:3000.
+
+🧪 Spuštění testů
+Pro ověření funkčnosti backendu a správnosti formátu dat spusťte:
+npm test
