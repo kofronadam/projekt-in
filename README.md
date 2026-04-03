@@ -30,7 +30,7 @@ Pro spuštění projektu na vašem počítači postupujte podle následujících
 
 3. **Nastavení prostředí (API klíč):**
 V kořenovém adresáři vytvořte soubor .env a vložte do něj svůj klíč pro SerpApi:
-SERP_API_KEY=79f4e3c64bf1adb397098bdd8a6f01ed84cac2eaae758c471afd7b3be372fe3e
+SERP_API_KEY=vás_api_klíč_z_serpapi.com
 
 4. **Spuštění aplikace:**
    ```bash
