@@ -25,22 +25,20 @@ Pro spuštění projektu na vašem počítači postupujte podle následujících
    cd NAZEV_REPOZITARE
 
 2. **Instalace závislostí:**
-```bash
-npm install
-
+   ```bash
+   npm install
 
 3. **Nastavení prostředí (API klíč):**
 V kořenovém adresáři vytvořte soubor .env a vložte do něj svůj klíč pro SerpApi:
-```bash
 SERP_API_KEY=79f4e3c64bf1adb397098bdd8a6f01ed84cac2eaae758c471afd7b3be372fe3e
 
 4. **Spuštění aplikace:**
-```bash
-npm start
+   ```bash
+   npm start
 
 Aplikace bude dostupná na adrese http://localhost:3000.
 
 5. **🧪 Spuštění testů**
 Pro ověření funkčnosti backendu a správnosti formátu dat spusťte:
-```bash
-npm test
+   ```bash
+   npm test
